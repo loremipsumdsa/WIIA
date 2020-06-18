@@ -11,7 +11,7 @@ learnedBL = {}
 
 def wiia(word,depth):
 	global about
-	nxtWord(word,1,depth)
+	nxtWord(word,0,depth)
 	outOfSubject()
 	short()
 	out()
@@ -45,7 +45,7 @@ def treatment(word,stage, depth):
 		nxtWord(l,stage+1,depth)
 
 def score(stage):
-	return 1/stage
+	return 1/(stage+1)
 
 
 def short():
@@ -108,14 +108,14 @@ def main():
 
 		if sys.argv[1]=="learn":
 			print("Running learn session...")
-			learn(500,3,40,50)
+			learn(500,2,40,50)
 		
 		else:
 x			word=''
 			for i in range(1,len(sys.argv)):
 				word+=str(sys.argv[i])+" "
 			print("Searching correspondence on "+ word)
-			wiia(word,3)
+			wiia(word,2)
 
 	except IndexError:
 		print("Arguments error, please be specific")
