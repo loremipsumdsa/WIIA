@@ -98,6 +98,7 @@ def learn(session, depth, corresThreshold, recurThreshold):
 			print(w)
 
 def main():
+
 	print("What is it about ?")
 	print("By Paul Nautre")
 	print("Made in Dol de Bretagne")
@@ -108,16 +109,18 @@ def main():
 		if sys.argv[1]=="learn":
 			print("Running learn session...")
 			learn(500,3,40,50)
+		
 		else:
-			print("Searching for correspondences...")
-			word=''
+x			word=''
 			for i in range(1,len(sys.argv)):
-				word+=str(sys.argv[i])
-			print(word)
+				word+=str(sys.argv[i])+" "
+			print("Searching correspondence on "+ word)
 			wiia(word,3)
+
 	except IndexError:
 		print("Arguments error, please be specific")
 		return
+	
 	print("Treatment ended, Success")	
 
 main()
