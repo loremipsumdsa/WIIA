@@ -4,6 +4,7 @@ import bs4
 import operator
 from collections import OrderedDict
 import sys
+import time
 
 about = {}
 blackList={"ISBN (identifier)","Doi (identifier)"}
@@ -32,7 +33,8 @@ def treatment(word,stage, depth):
 		links = wiki.page(word).links
 	
 	except (wiki.exceptions.DisambiguationError,wiki.exceptions.PageError):
-		#faire une exeption sur les pages qui n'existe pas ou qui sont ambigues
+		if stage == 0:
+			print("Warning : Unable to find First level concept")
 		return
 	for l in links:
 		
@@ -83,7 +85,7 @@ def learn(session, depth, corresThreshold, recurThreshold):
 	for i in range(session):
 		about.clear()
 
-		nxtWord(wiki.random(),1,depth)
+		nxtWord(wiki.random(),0,depth)
 		short()
 
 		for w in about:
@@ -107,20 +109,26 @@ def main():
 	try:
 
 		if sys.argv[1]=="learn":
-			print("Running learn session...")
-			learn(500,2,40,50)
+			t = str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)+":"+str(time.localtime().tm_sec)
+			print(t+" : Running learn session...")
+			print("---------------------------------")
+			learn(20,1,20,20)
 		
 		else:
-x			word=''
+			word=''
 			for i in range(1,len(sys.argv)):
 				word+=str(sys.argv[i])+" "
-			print("Searching correspondence on "+ word)
+			t = str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)+":"+str(time.localtime().tm_sec)
+			print(t+" : Searching matches on "+ word)
+			print("---------------------------------")
+
 			wiia(word,2)
 
 	except IndexError:
 		print("Arguments error, please be specific")
 		return
-	
-	print("Treatment ended, Success")	
+	t = str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)+":"+str(time.localtime().tm_sec)
+	print("---------------------------------")
+	print(t+" : Treatment ended, Success")	
 
 main()
