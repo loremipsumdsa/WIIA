@@ -1,5 +1,5 @@
-* What Is It About
-** An automatic brainstorming to find correlation between concepts
+# What Is It About
+## An automatic brainstorming to find correlation between concepts
 
 We now that inteligence is making link between concepts, like if I say "burger" you think "food", that's how you think.
 Now you also attribute a weight to that link, like I say "Burger", you think "food" but you also think "mcdonald", then there is a link between "food" and "mcdonald" but it is a bit less important than between "burger" and "food". 
