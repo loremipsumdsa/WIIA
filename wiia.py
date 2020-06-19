@@ -37,7 +37,7 @@ def treatment(word,stage, depth): # read page, extract keyword and calculate it 
 	
 	except (wiki.exceptions.DisambiguationError,wiki.exceptions.PageError): # Marginal data loss are not important as it is not on the first stage
 		if stage == 0:
-			print("Warning : Unable to find First level concept") # It could cause total fail on a search, less important on a learn session
+			print("Warning : Unable to find First level concept") # It could cause total fail on a search, protected on a learn session
 		return
 	for l in links:
 		
@@ -88,17 +88,22 @@ def learn(session, depth, corresThreshold, recurThreshold): # Find keywords witc
 
 	for i in range(session):
 		about.clear()
+		try:
+			p=wiki.random()
+			wiki.page(p)
+			nxtWord(p,0,depth)
+			short()
 
-		nxtWord(wiki.random(),0,depth)
-		short()
+			for w in about:
+				if about[w] >= corresThreshold:
+					try :
+						learnedBL[w]+=1;
+					except KeyError:
+						learnedBL[w]=1
+		
+		except (wiki.exceptions.DisambiguationError,wiki.exceptions.PageError):
+			session-=1
 
-		for w in about:
-			if about[w] >= corresThreshold:
-				try :
-					learnedBL[w]+=1;
-				except KeyError:
-					learnedBL[w]=1
-	
 	for w in learnedBL:
 		if (learnedBL[w]/(session/100)) >= recurThreshold:
 			print(w)
@@ -116,7 +121,7 @@ def main(): # Read parameter to decide what to execute : search on additionnal p
 			t = str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)+":"+str(time.localtime().tm_sec)
 			print(t+" : Running learn session...")
 			print("---------------------------------")
-			learn(5,2,30,40)
+			learn(1,2,30,40)
 		
 		else:
 			word=''
