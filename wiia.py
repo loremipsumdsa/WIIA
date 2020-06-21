@@ -11,10 +11,12 @@ import sys
 import time
 
 about = {} # That dictionnary will contain all concepts related to the start one
-blackList={"ISBN (identifier)","Doi (identifier)"} # List of subject to avoid : statistic error detected by learn function
+blackList=[] # List of subject to avoid : statistic error detected by learn function
 
 def wiia(word,depth): # main function of the process : launch an analys, then short it, then print it
 	global about
+
+	loadBL()
 	nxtWord(word,0,depth)
 	outOfSubject()
 	short()
@@ -63,6 +65,7 @@ def short(): # short keyword by proximity rate and calibrate int %
 		if maxC == 0:
 			maxC =about[w]
 		about[w]/=(maxC/100)
+		about[w]=round(about[w],3)
 
 
 def out(): # Basically a print  
@@ -108,12 +111,26 @@ def learn(session, depth, corresThreshold, recurThreshold): # Find keywords witc
 		if (learnedBL[w]/(session/100)) >= recurThreshold:
 			print(w)
 
+def loadBL():
+	global blackList
+
+	blf = open("blacklist.txt","r")
+	cursor = False
+	for line in blf:
+		if line=="---------------------------------\n":
+			cursor= not(cursor)
+		if cursor:
+			line = line.rstrip('\n')
+			blackList.append(line)
+	blf.close()
+
+
 def main(): # Read parameter to decide what to execute : search on additionnal parameter, learn or return error
 
 	print("What is it about ?")
 	print("By Paul Nautre")
 	print("Made in Dol de Bretagne")
-	print("-----------------------------")
+	print("################################")
 
 	try:
 
@@ -121,7 +138,7 @@ def main(): # Read parameter to decide what to execute : search on additionnal p
 			t = str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)+":"+str(time.localtime().tm_sec)
 			print(t+" : Running learn session...")
 			print("---------------------------------")
-			learn(1,2,30,40)
+			learn(4,2,30,40)
 		
 		else:
 			word=''

@@ -1,0 +1,26 @@
+What is it about ?
+By Paul Nautre
+Made in Dol de Bretagne
+#############################
+16:55:39 : Running learn session...
+---------------------------------
+ISBN (identifier)
+LCCN (identifier)
+VIAF (identifier)
+WorldCat Identities
+ISNI (identifier)
+GND (identifier)
+Doi (identifier)
+OCLC (identifier)
+SNAC
+Royal Library of the Netherlands
+Geographic coordinate system
+BNF (identifier)
+ISSN (identifier)
+National Library of the Czech Republic
+Wayback Machine
+SUDOC (identifier)
+National Diet Library
+National Archives and Records Administration
+---------------------------------
+17:10:8 : Treatment ended, Success
