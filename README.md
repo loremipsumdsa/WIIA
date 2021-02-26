@@ -11,7 +11,7 @@ The point with World Wild Web is that it is full of links, virtual links I mean,
 That what we are doing here : starting from a random word, found some words it is linked with and calculate how much it is linked with by exploring a kind of massive dictionnary : Wikipedia.org.
 Of course for the computer there is still no sens, just a statistic proximity. but the result is pretty close with a brainstorming we could put on a blackboard (but bigger and faster).
 
-A problem with that kind of analyse is that there are reccurent statistics errors : For exemple on a lot of wikipedia's pages, there is a reference to "ISBN" witch is a standard documents identifier, often in the citations section. It appear in the most of wikipedia's pages as it is out-of-subject. To avoid conclusion like "all is about ISBN", we can buid a blackist of concepts witch are always out of subject. It become interresting when that task is automatic: In fact it is pretty simple to find witch word are abnormally current by looking at a lot of pages randomly choosen. This is the purpose of the ~learn~ function.        
+A problem with that kind of analyse is that there are reccurent statistics errors : For exemple on a lot of wikipedia's pages, there is a reference to "ISBN" witch is a standard documents identifier, often in the citations section. It appear in the most of wikipedia's pages as it is out-of-subject. To avoid conclusion like "all is about ISBN", we can buid a blackist of concepts witch are always out of subject. It become interresting when that task is automatic: In fact it is pretty simple to find witch word are abnormally current by looking at a lot of pages randomly choosen. This is the purpose of the `learn` function.        
 
 
 
