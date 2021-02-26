@@ -18,5 +18,5 @@ A problem with that kind of analyse is that there are reccurent statistics error
 
 PS :
 
-My name is Paul Nautré, i am a fist Year student in a computer science's french University. I do not pretend to invent anything, just trying do lead some little projects to get experience. Also i'm new on GitHub and my english is may pretty bad, sorry about that
+My name is Paul Nautré, i am a first Year student in a computer science's french University. I do not pretend to invent anything, just trying do lead some little projects to get experience. Also i'm new on GitHub and my english is may pretty bad, sorry about that
 Thanks for your patience !  
